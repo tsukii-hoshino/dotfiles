@@ -1,0 +1,87 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "modules": [
+    "break",
+    {
+      "type": "custom",
+      "format": "       👋 welcome, {#blue}lunaris{#}!",
+    },
+    {
+      "type": "custom",
+      "format": "╭────────── {#magenta}system info{#} ──────────╮",
+    },
+    {
+      "type": "os",
+      "key": "   os     ",
+      "keyColor": "magenta",
+    },
+    {
+      "type": "kernel",
+      "key": "   kernel ",
+      "keyColor": "magenta",
+    },
+    {
+      "type": "wm",
+      "key": "   wm     ",
+      "keyColor": "magenta",
+    },
+    {
+      "type": "custom",
+      "format": "╰─────────────────────────────────╯",
+    },
+    {
+      "type": "colors",
+      "symbol": "circle",
+      "paddingLeft": 11,
+    },
+    {
+      "type": "custom",
+      "format": "╭─────────── {#cyan}other info{#} ──────────╮",
+    },
+    {
+      "type": "uptime",
+      "key": "   uptime ",
+      "keyColor": "cyan",
+    },
+    {
+      "type": "packages",
+      "key": "   pkgs   ",
+      "keyColor": "cyan",
+      "format": "{all}",
+    },
+    {
+      "type": "shell",
+      "key": "   shell  ",
+      "keyColor": "cyan",
+    },
+    {
+      "type": "terminal",
+      "key": "   term   ",
+      "keyColor": "cyan",
+    },
+    {
+      "type": "theme",
+      "key": "   theme  ",
+      "keyColor": "cyan",
+    },
+    {
+      "type": "custom",
+      "format": "╰─────────────────────────────────╯",
+    },
+    {
+      "type": "custom",
+      "format": "   🚀 connection status: {#green}success{#}",
+    },
+  ],
+  "display": {
+    "color": "blue",
+    "separator": " ",
+    "disableLinewrap": true,
+  },
+  "logo": {
+    "type": "auto",
+    "source": "/home/lunaris/.config/fastfetch/ascii.txt",
+    "width": 1,
+    "color": { "1": "cyan" },
+  },
+}

@@ -1,0 +1,223 @@
+input {
+  keyboard {
+    numlock
+  }
+  tablet {
+    calibration-matrix 0.0 -1.0 1.0 1.0 0.0 0.0
+    // rotate 90 degree clockwise since my tablet is shitting itself
+  }
+  warp-mouse-to-focus
+  // focus-follows-mouse max-scroll-amount="0%"
+}
+
+output "eDP-1" {
+    mode "1920x1080@120.030"
+    scale 1
+    transform "normal"
+}
+
+overview {
+  workspace-shadow {
+    off
+  }
+
+  zoom 0.5
+}
+
+layout {
+    gaps 16
+    center-focused-column "always"
+    default-column-width { proportion 0.5; }
+    background-color "transparent"
+
+    focus-ring {
+      off
+    }
+
+    border {
+      off
+    }
+
+    shadow {
+        on
+        softness 20
+        spread 8
+        offset x=0 y=0
+        color "#0005"
+        inactive-color "#0005"
+        draw-behind-window true
+    }
+}
+
+// startup
+// spawn-at-startup "waybar"
+spawn-at-startup "dunst"
+spawn-at-startup "fcitx5"
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+spawn-at-startup "swaybg" "-i" "/home/lunaris/Pictures/gargantua_2.jpg" "-m" "fill"
+spawn-at-startup "ags" "run" "/home/lunaris/.config/ags/app.tsx"
+
+hotkey-overlay {
+  skip-at-startup
+}
+
+prefer-no-csd
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+animations {
+  window-open {
+    duration-ms 400
+    curve "cubic-bezier" 0.68 -0.55 0.265 1.55
+  }
+
+  window-close {
+    duration-ms 200
+    curve "cubic-bezier" 0.68 -0.55 0.265 1.55
+  }
+}
+
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+  match app-id=r#"Windscribe$"#
+  open-floating true
+}
+
+window-rule {
+  match app-id=r#"xdg-desktop-portal-gtk$"#
+  open-floating true
+}
+
+layer-rule {
+  match namespace="powermenu"
+
+  shadow {
+        on
+        softness 10
+        spread 8
+        offset x=0 y=0
+        color "#000A"
+        inactive-color "#000A"
+        draw-behind-window false
+    }
+
+    geometry-corner-radius 12
+}
+
+window-rule {
+  match app-id=r#"org.pulseaudio.pavucontrol$"#
+  open-floating true
+}
+
+layer-rule {
+  match namespace="^wallpaper$"
+  place-within-backdrop true
+}
+
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screen-capture"
+}
+
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+binds {
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    // programs
+    Mod+Return hotkey-overlay-title="Open terminal" { spawn "kitty"; }
+    // rofi -show drun if you want
+    Mod+Space hotkey-overlay-title="Open app launcher" { spawn "sherlock"; }
+    Mod+L { spawn "swaylock"; }
+    Mod+E hotkey-overlay-title="Open file explorer" { spawn "nautilus"; }
+    Mod+W { spawn "ags" "toggle" "PowerMenu" "-i" "ags"; }
+    Mod+V { spawn-sh "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
+    Mod+J { spawn-sh "emoji-selector.sh"; }
+    Mod+Alt+S { spawn "lazyfav"; }
+    Mod+R { spawn "recorder.sh"; }
+
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+
+    Mod+O repeat=false { toggle-overview; }
+
+    Mod+Q repeat=false { close-window; }
+
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-workspace-down; }
+    Mod+Up    { focus-workspace-up; }
+    Mod+Right { focus-column-right; }
+
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Down  { move-column-to-workspace-down; }
+    Mod+Shift+Up    { move-column-to-workspace-up; }
+    Mod+Shift+Right { move-column-right; }
+
+    Mod+Home { focus-column-first; }
+    Mod+End  { focus-column-last; }
+    Mod+Shift+Home { move-column-to-first; }
+    Mod+Shift+End  { move-column-to-last; }
+    Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp cooldown-ms=150 { focus-workspace-up; }
+    Mod+Shift+WheelScrollDown cooldown-ms=150 { focus-column-right; }
+    Mod+Shift+WheelScrollUp cooldown-ms=150 { focus-column-left; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
+    Mod+Tab { focus-workspace-previous; }
+
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+
+    Mod+Comma  { consume-window-into-column; }
+    Mod+Period { expel-window-from-column; }
+
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+    Mod+Ctrl+F { expand-column-to-available-width; }
+
+    Mod+C { center-column; }
+
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    Mod+S       { toggle-window-floating; }
+    Mod+Shift+S { switch-focus-between-floating-and-tiling; }
+
+    Print { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+
+    Mod+Shift+E { quit; }
+}
