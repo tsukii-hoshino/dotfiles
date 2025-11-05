@@ -1,7 +1,7 @@
 /**
  * @name midnight (remixed)
  * @description midnight but with some tweaks
- * @author refact0r, lunar.is.dum._.
+ * @author refact0r, tsukii.hoshino
  * @version 6.7.0
  * @website https://github.com/refact0r/midnight-discord
  * @source https://github.com/refact0r/midnight-discord/blob/master/themes/midnight.theme.css
@@ -43,7 +43,7 @@ body {
   --top-bar-button-position: titlebar;
 
   /* DMS BUTTON */
-  --custom-dms-icon: custom;
+  --custom-dms-icon: off;
   /* off, hide, custom */
   --dms-icon-svg-url: url("https://upload.wikimedia.org/wikipedia/commons/c/c4/Font_Awesome_5_solid_moon.svg");
   /* MUST BE A SVG */
@@ -227,7 +227,7 @@ body {
 
 /* fix misaligned inbox icon (adjust the offset if necessary) */
 div[class^="container_"] div[class^="trailing_"] {
-  top: calc(var(--top-bar-height) + 10px + var(--border-thickness)) !important;
+  top: calc(var(--top-bar-height) + 6px + var(--border-thickness)) !important;
 }
 
 /* zoom in banner when hovered */
