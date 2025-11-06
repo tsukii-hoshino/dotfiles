@@ -24,7 +24,7 @@
 @import url("https://refact0r.github.io/midnight-discord/build/midnight.css");
 
 body {
-  --font: "poppins";
+  --font: "fs magistral";
   --code-font: "cartograph cf";
   font-weight: 400;
 
@@ -280,7 +280,7 @@ div[class^="sectionsContainer_"]> :is(div:nth-child(4), div:nth-child(5), div:nt
   /* div:nth-child(9) */
 ),
 div[class^="upsellOverlayContainer__"],
-div[class^="buttons__"] :is(div[aria-label*="gift"], div:has(div[aria-label*="gift"]), div:has(div[aria-label*="GIF"]), div:has(div[aria-label*="sticker"])),
+div[class^="inner__"]>div[class^="buttons__"]> :is(div:nth-child(1), div:nth-child(2), div:nth-child(3), div:nth-child(4)),
 div[class^="emojiPicker_"] :is(button[data-migration-pending="true"], div[class^="diversitySelector_"]),
 a[href*="support.discord.com"] {
   display: none !important;
