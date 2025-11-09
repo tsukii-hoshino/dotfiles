@@ -1,0 +1,89 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "modules": [
+    "break",
+    {
+      "type": "custom",
+      "format": "{#yellow}          |\\      _,,,---,,_\n    ZZZzz /,`.-'`'    -.  ;-;;,_\n         |,4-  ) )-,_. ,\\ (  `'-'\n        '---''(_\/--'  `-'\\_){#}"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "           👋 welcome, {#magenta}tsuki{#}",
+    },
+    {
+      "type": "custom",
+      "format": "  ╭─────────── {#green}system info{#} ───────────╮",
+    },
+    {
+      "type": "os",
+      "key": "     os     ",
+      "keyColor": "green",
+    },
+    {
+      "type": "kernel",
+      "key": "     kernel ",
+      "keyColor": "green",
+    },
+    {
+      "type": "wm",
+      "key": "     wm     ",
+      "keyColor": "green",
+    },
+    {
+      "type": "custom",
+      "format": "  ╰───────────────────────────────────╯",
+    },
+    {
+      "type": "colors",
+      "symbol": "circle",
+      "paddingLeft": 13,
+    },
+    {
+      "type": "custom",
+      "format": "  ╭──────────── {#cyan}other info{#} ───────────╮",
+    },
+    {
+      "type": "uptime",
+      "key": "     upt  ",
+      "keyColor": "cyan",
+    },
+    {
+      "type": "packages",
+      "key": "     pkgs ",
+      "keyColor": "cyan",
+      "format": "{all}",
+    },
+    {
+      "type": "shell",
+      "key": "     sh   ",
+      "keyColor": "cyan",
+    },
+    {
+      "type": "terminal",
+      "key": "     term ",
+      "keyColor": "cyan",
+    },
+    {
+      "type": "theme",
+      "key": "     thm  ",
+      "keyColor": "cyan",
+    },
+    {
+      "type": "custom",
+      "format": "  ╰───────────────────────────────────╯",
+    },
+    {
+      "type": "custom",
+      "format": "              🐈 meow~! :3",
+    },
+  ],
+  "display": {
+    "color": "blue",
+    "separator": " ",
+    "disableLinewrap": true,
+  },
+  "logo": {
+    "type": "none",
+  },
+}

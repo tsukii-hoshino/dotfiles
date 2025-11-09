@@ -101,9 +101,16 @@ window-rule {
 }
 
 window-rule {
-  match app-id=r#"^zen$"# title="^Developer Tools"
+  match app-id=r#"org.pulseaudio.pavucontrol$"#
 
-  open-floating true
+  min-width 890
+  min-height 520
+}
+
+window-rule {
+  match app-id=r#"org.gnome.Nautilus$"#
+
+  opacity 0.5
 }
 
 layer-rule {
