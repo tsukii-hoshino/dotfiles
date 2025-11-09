@@ -30,7 +30,7 @@ gray_2 = '#859289'
 gray_3 = '#9da9a0'
 
 [directory]
-format = "[ $path ]($style) [>](fg:gray_3) "
+format = "[ $path ]($style)[>](fg:gray_3)"
 style = "fg:blue"
 truncation_length = 3
 truncation_symbol = ""
@@ -46,7 +46,7 @@ style = "fg:fg"
 symbol = " "
 
 [git_branch]
-format = "[ $symbol $branch]($style) [>](fg:gray_3) "
+format = "[ $symbol $branch]($style) "
 style = "fg:purple"
 symbol = ""
 
@@ -54,7 +54,7 @@ symbol = ""
 disabled = false
 style = "fg:orange"
 format = '([$all_status$ahead_behind]($style)) '
-up_to_date = '[ ✓ ](fg:teal)'
+up_to_date = '[✓](fg:teal)'
 untracked = '[?\($count\)](fg:orange)'
 stashed = '[\$](fg:purple)'
 modified = '[!\($count\)](fg:teal)'
