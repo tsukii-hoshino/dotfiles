@@ -4,86 +4,102 @@
     "break",
     {
       "type": "custom",
-      "format": "{#yellow}          |\\      _,,,---,,_\n    ZZZzz /,`.-'`'    -.  ;-;;,_\n         |,4-  ) )-,_. ,\\ (  `'-'\n        '---''(_\/--'  `-'\\_){#}"
+      "format": "{#yellow}            |\\      _,,,---,,_{#}\n      {#blue}ZZZzz{#}{#yellow} /,`.-'`'    -.  ;-;;,_\n           |,4-  ) )-,_. ,\\ (  `'-'\n          '---''(_\/--'  `-'\\_){#}"
     },
     "break",
+    
     {
       "type": "custom",
-      "format": "           👋 welcome, {#magenta}tsuki{#}",
-    },
-    {
-      "type": "custom",
-      "format": "  ╭─────────── {#green}system info{#} ───────────╮",
-    },
-    {
-      "type": "os",
-      "key": "     os     ",
-      "keyColor": "green",
-    },
-    {
-      "type": "kernel",
-      "key": "     kernel ",
-      "keyColor": "green",
-    },
-    {
-      "type": "wm",
-      "key": "     wm     ",
-      "keyColor": "green",
-    },
-    {
-      "type": "custom",
-      "format": "  ╰───────────────────────────────────╯",
-    },
+      "format": "     {#default}▓▒░{#} {#red}▓▒░{#} {#green}▓▒░{#} {#yellow}▓▒░{#} {#blue}▓▒░{#} {#magenta}▓▒░{#} {#cyan}▓▒░{#} {#white}▓▒░{#}"
+    }, 
+    /*
     {
       "type": "colors",
       "symbol": "circle",
-      "paddingLeft": 13,
-    },
+      "paddingLeft": 13
+    }, */
+    "break",
     {
-      "type": "custom",
-      "format": "  ╭──────────── {#cyan}other info{#} ───────────╮",
+      "type": "title",
+      "format": "              hai {#bold_magenta}{user-name}{#}",
     },
     {
       "type": "uptime",
-      "key": "     upt  ",
-      "keyColor": "cyan",
+      "key": "          ",
+      "format": "up {#bold_cyan}{hours} hrs, {minutes} mins{#}",
+    },
+    "break",
+    {
+      "type": "os",
+      "key": "          ",
+      "format": "{#bold_red}distro{#} ✦ {name}"
+    },
+    {
+      "type": "kernel",
+      "key": "          ",
+      "format": "{#bold_yellow}kernel{#} ✦ {release}"
     },
     {
       "type": "packages",
-      "key": "     pkgs ",
-      "keyColor": "cyan",
-      "format": "{all}",
+      "key": "        ",
+      "format": "{#bold_green}packages{#} ✦ {all}"
     },
     {
       "type": "shell",
-      "key": "     sh   ",
-      "keyColor": "cyan",
+      "key": "           ",
+      "format": "{#bold_magenta}shell{#} ✦ {process-name}"
     },
     {
       "type": "terminal",
-      "key": "     term ",
-      "keyColor": "cyan",
+      "key": "            ",
+      "format": "{#bold_blue}term{#} ✦ {exe-name}"
     },
     {
-      "type": "theme",
-      "key": "     thm  ",
-      "keyColor": "cyan",
+      "type": "wm",
+      "key": "              ",
+      "format": "{#bold_white}wm{#} ✦ {process-name}"
     },
     {
-      "type": "custom",
-      "format": "  ╰───────────────────────────────────╯",
+      "type": "disk",
+      "key": "            ",
+      "format": "{#bold_green}disk{#} ✦ {size-used} used"
+    },
+    "break",
+    {
+      "type": "cpuusage",
+      "percent": 
+      {
+        "type": ["num", "bar"]
+      },
+      "key": "        ",
+      "format": "{#bold_red}cpu{#} {avg} {max-bar}"
     },
     {
-      "type": "custom",
-      "format": "              🐈 meow~! :3",
-    },
+      "type": "memory",
+      "percent": {"type": ["num", "bar"]},
+      "key": "        ",
+      "format": "{#bold_red}ram{#} {percentage} {percentage-bar}"
+    }
   ],
   "display": {
     "color": "blue",
     "separator": " ",
     "disableLinewrap": true,
+    "bar": {
+      "char": {
+        "elapsed": "━",
+        "total": "━"
+      },
+      "border": null,
+      "color": {"elapsed": "bold_red"},
+      "width": 15
+    },
+    "size": {
+      "ndigits": 0,
+      "binaryPrefix": "jedec"
+    }
   },
   "logo": {
-    "type": "none",
-  },
+    "type": "none"
+  }
 }
