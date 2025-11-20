@@ -33,7 +33,7 @@ body {
   --border-thickness: 0px;
 
   --animations: on;
-  --list-item-transition: 0.2s ease-in-out;
+  --list-item-transition: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --dms-icon-svg-transition: 0.4s ease;
   --border-hover-transition: 0.2s ease;
 
@@ -86,7 +86,7 @@ body {
 
   --small-user-panel: off;
   /* on: smaller user panel like in old discord */
-  --custom-chat-prompt: "dont forget to be yourself! :3";
+  --custom-chat-prompt: "dont forget to stay hydrated! :3";
 }
 
 /*
@@ -220,6 +220,29 @@ body {
 
 */
 
+/* list hover animation override */
+.visual-refresh {
+  .wrapper__2ea32 .link__2ea32,
+  .container__91a9d,
+  .side_aa8da2 .item_aa8da2,
+  .channel__972a0 {
+    transition: transform var(--list-item-transition);
+    will-change: transform;
+  }
+
+  .wrapper__2ea32:hover .link__2ea32,
+  .container__91a9d:hover,
+  .side_aa8da2 .item_aa8da2:hover,
+  .channel__972a0:hover {
+    margin-left: auto !important;
+    transform: translateY(-5px) rotateZ(0.3deg) scale(1.06);
+  }
+
+  .wrapper__2ea32:hover .unread__2ea32 {
+    margin-left: -4px !important;
+  }
+}
+
 /* base bg color */
 .bg__960e4 {
   background-color: #0a0e1790 !important;
@@ -227,7 +250,7 @@ body {
 
 /* fix misaligned inbox icon (adjust the offset if necessary) */
 div[class^="container_"] div[class^="trailing_"] {
-  top: calc(var(--top-bar-height) + 6px + var(--border-thickness)) !important;
+  top: calc(var(--top-bar-height) + 4px + var(--border-thickness)) !important;
 }
 
 /* zoom in banner when hovered */
@@ -298,7 +321,7 @@ div[class^="name__"]>div {
 
 .username_c19a55,
 .username__703b9 {
-  text-shadow: 0 0 3px currentColor;
+  text-shadow: 0 0 2px currentColor;
 }
 
 /* cool folder redesigns */
