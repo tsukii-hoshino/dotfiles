@@ -20,8 +20,11 @@
 @import url(https://croissantdunord.github.io/discord-adblock/adblock-extras.css);
 @import url("https://warrayquipsome.github.io/Chillax/Addons/FolderRedesign.css");
 */
+
 @import url("https://mwittrien.github.io/BetterDiscordAddons/Themes/_res/SettingsIcons.css");
 @import url("https://refact0r.github.io/midnight-discord/build/midnight.css");
+@import url("https://raw.githubusercontent.com/mudrhiod/discord-iconpacks/refs/heads/master/vencord/solar/solar.css");
+@import url("https://raw.githubusercontent.com/mudrhiod/discord-iconpacks/refs/heads/master/vencord/solar/moreicons.css");
 
 body {
   --font: "fs magistral";
@@ -33,7 +36,7 @@ body {
   --border-thickness: 0px;
 
   --animations: on;
-  --list-item-transition: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --list-item-transition: 0.2s ease-in-out;
   --dms-icon-svg-transition: 0.4s ease;
   --border-hover-transition: 0.2s ease;
 
@@ -163,7 +166,7 @@ body {
   /* background of messages that reply to you when hovered */
 
   /* STATUS INDICATOR */
-  --online: var(--blue-1);
+  --online: var(--green-1);
   --dnd: var(--red-1);
   --idle: var(--yellow-1);
   --streaming: var(--purple-1);
@@ -226,7 +229,7 @@ body {
   .container__91a9d,
   .side_aa8da2 .item_aa8da2,
   .channel__972a0 {
-    transition: transform var(--list-item-transition);
+    transition: all var(--list-item-transition);
     will-change: transform;
   }
 
@@ -234,12 +237,22 @@ body {
   .container__91a9d:hover,
   .side_aa8da2 .item_aa8da2:hover,
   .channel__972a0:hover {
+    /* margin-left: auto !important; */
+    transform: translateY(-5px) scale(1.05);
+  }
+
+  .wrapper__2ea32 .unread__2ea32 {
+    border-radius: 50% !important;
     margin-left: auto !important;
-    transform: translateY(-5px) rotateZ(0.3deg) scale(1.06);
+    max-width: 5px;
+    max-height: 5px;
+    background-color: var(--text-4);
   }
 
   .wrapper__2ea32:hover .unread__2ea32 {
-    margin-left: -4px !important;
+    box-shadow: 0 0 3px white;
+    background-color: white;
+    margin-left: auto !important;
   }
 }
 
@@ -250,7 +263,7 @@ body {
 
 /* fix misaligned inbox icon (adjust the offset if necessary) */
 div[class^="container_"] div[class^="trailing_"] {
-  top: calc(var(--top-bar-height) + 4px + var(--border-thickness)) !important;
+  top: calc(var(--top-bar-height) + 6.5px + var(--border-thickness)) !important;
 }
 
 /* zoom in banner when hovered */
@@ -305,7 +318,8 @@ div[class^="sectionsContainer_"]> :is(div:nth-child(4), div:nth-child(5), div:nt
 div[class^="upsellOverlayContainer__"],
 div[class^="inner__"]>div[class^="buttons__"]> :is(div:nth-child(1), div:nth-child(2), div:nth-child(3), div:nth-child(4)),
 div[class^="emojiPicker_"] :is(button[data-migration-pending="true"], div[class^="diversitySelector_"]),
-a[href*="support.discord.com"] {
+a[href*="support.discord.com"],
+div[class^="toolbar__"] > div[class^="inviteToolbar__"] {
   display: none !important;
 }
 
